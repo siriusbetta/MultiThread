@@ -126,7 +126,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					  }
 
 					  WaitForMultipleObjects(THREADS_NUMBER, hThreads, TRUE, INFINITE);
+
 					  wsprintf(szMessage, TEXT("Counter = %d\r\n"), dwCounter);
+					  MessageBox(NULL, szMessage, "Message", MB_OK);
 					  WriteConsole(hStdOut, szMessage, lstrlen(szMessage), &dwTemp, NULL);
 
 					  for(i = 0; i < THREADS_NUMBER; i++) {
